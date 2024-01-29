@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ baker_details.name }}'s Cake Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="{{ baker_details.name }} Logo">
+    </div>
+    <h1>{{ baker_details.name }}'s Cake Portfolio</h1>
+    <p>Follow us on Instagram: <a href="https://instagram.com/{{ baker_details.instagram_username }}" target="_blank" rel="noopener noreferrer">@{{ baker_details.instagram_username }}</a></p>
+</header>
+
+<section id="cake-catalog">
+    <h2>Our Delicious Cakes</h2>
+    <div class="cake-container">
+        {% for cake in cake_catalog %}
+        <div class="cake-item">
+            {% if cake.name == 'Chocolate Cake' %}
+            <img src="{{ url_for('static', filename='images/choco.png') }}" alt="{{ cake.name }}">
+            {% elif cake.name == 'Vanilla Cupcakes' %}
+            <img src="{{ url_for('static', filename='images/vani.webp') }}" alt="{{ cake.name }}">
+            {% else %}
+            <img src="{{ cake.image_url }}" alt="{{ cake.name }}">
+            {% endif %}
+            <h3>{{ cake.name }}</h3>
+            <p>{{ cake.description }}</p>
+            <p class="price"><strong>Price: {{ cake.price }}</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+</body>
+</html>
