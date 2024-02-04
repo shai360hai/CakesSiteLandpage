@@ -23,9 +23,9 @@
         {% for cake in cake_catalog %}
         <div class="cake-item">
             {% if cake.name == 'Chocolate Cake' %}
-            <img src="{{ url_for('static', filename='images/choco.png') }}" alt="{{ cake.name }}">
+            <img src="{{ url_for('static', filename='images/choco.jpg') }}" alt="{{ cake.name }}">
             {% elif cake.name == 'Vanilla Cupcakes' %}
-            <img src="{{ url_for('static', filename='images/vani.webp') }}" alt="{{ cake.name }}">
+            <img src="{{ url_for('static', filename='images/vanil.webp') }}" alt="{{ cake.name }}">
             {% else %}
             <img src="{{ cake.image_url }}" alt="{{ cake.name }}">
             {% endif %}
